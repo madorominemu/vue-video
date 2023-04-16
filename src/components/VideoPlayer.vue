@@ -209,7 +209,6 @@
 	  onProgressDragStart(e) {
         this.dragStartX = e.touches[0].clientX;
         this.isDragging = true;
-        console.log(this.progressLength);
 	  },
 	  onProgressDragMove(e) {
         if ( !this.duration ) {
@@ -233,10 +232,10 @@
       onProgressDragEnd(e) {
         this.isDragging = false;
 	  },
-      // changeTime(percent) {
-      //   let newCurTime = (percent * 0.01) * this.duration;
-      //   this.$store.commit('setChangeTime', newCurTime);
-      // },
+      changeTime(percent) {
+        let newCurTime = (percent * 0.01) * this.duration;
+        this.$store.commit('setChangeTime', newCurTime);
+      },
       formatTime() {
         let time = this.currentTime;
         return (Math.floor(time / 60) + "").padStart(2,"0")+":"+(Math.floor(time % 60) +"").padStart(2, "0");
